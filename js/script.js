@@ -1,32 +1,46 @@
 let userChoice;
 let robotChoice;
+let computerChoice
 $(".play").click(function() {
-  userChoice = $(".input").val();
+  userChoice = $(".input").val().toLowerCase();
    console.log(".userChoice");
   $(".userChoice").text(userChoice)
+  
+  //Defining RobotChoice based on numbers
 let robotChoice = Math.ceil(Math.random() * 3);
    $(".computerChoice").text(robotChoice)
   if (robotChoice === 1) {
+    computerChoice = "rock";
     $(".computerChoice").text("rock");
   } else if (robotChoice === 2) {
+    computerChoice = "scissors"
     $(".computerChoice").text("sccisors");
   } else if (robotChoice === 3) {
+    computerChoice = "paper"
     $(".computerChoice").text("paper");
   }
   
-  if ($(".userChoice").val() === "paper" && $(".robotChoice").val() ==="rock") {
+  //Choosing winner
+  if (userChoice === "paper" && computerChoice === "rock"){
     $(".result").text("Your win");
-  } else if ($(".userChoice").val() === "paper" && $(".robotChoice").val() ==="paper"){
+  } else if (userChoice === "paper" && computerChoice === "paper"){
     $(".result").text("Tie");
-  } else if ($(".userChoice").val() === "paper" && $(".robotChoice").val() ==="sccisors") {
+  } else if (userChoice === "paper" && computerChoice === "scissors") {
     $(".result").text("You Lose");
   }
   
-  if ($(".userChoice").val() === "rock" && $(".robotChoice").val() ==="rock") {
+  if (userChoice === "rock" && computerChoice === "rock") {
     $(".result").text("Tie");
-  } else if ($(".userChoice").val() === "rock" && $(".robotChoice").val() ==="paper"){
+  } else if (userChoice === "rock" && computerChoice === "paper") {
     $(".result").text("You Lose");
-  } else if ($(".userChoice").val() === "rock" && $(".robotChoice").val() ==="sccisors") {
+  } else if (userChoice === "rock" && computerChoice === "scissors") {
+    $(".result").text("You Win");
+  }
+    if (userChoice === "scissors" && computerChoice === "scissors") {
+    $(".result").text("Tie");
+  } else if (userChoice === "scissors" && computerChoice === "rock") {
+    $(".result").text("You Lose");
+  } else if (userChoice === "scissors" && computerChoice === "paper") {
     $(".result").text("You Win");
   }
 });
