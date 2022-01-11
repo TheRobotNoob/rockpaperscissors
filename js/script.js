@@ -21,7 +21,7 @@ function robotChoice() {
     computerChoice = "paper"
     $(".computerChoice").text("paper");
   }
-  return robotChoice();
+  return robotChoice;
 }
   
   computerChoice = robotChoice();
